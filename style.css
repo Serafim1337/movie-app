@@ -47,15 +47,9 @@ h2 {
   transition: ease 1s;
 }
 
-/* ::selection {
-  background: #212129;
-} */
-
 .search-wrapper {
   position: absolute;
   transform: translate(-50%, -50%);
-  /* top: 50%;
-  left: 50%; */
 }
 .search-wrapper.active {
 }
@@ -203,12 +197,6 @@ h2 {
   padding-bottom: 20px;
 }
 
-.films-container {
-  /* display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; */
-}
-
 .films-block-content {
   margin: 50px;
   display: flex;
@@ -268,7 +256,6 @@ h2 {
 .film-card-cross {
   width: 50px;
   float: right;
-  /* margin: 10px; */
 }
 
 .film-card-cross:hover {

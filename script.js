@@ -1,3 +1,4 @@
+//! search-bar components
 const inputHolder = document.querySelector(".input-holder");
 inputHolder.addEventListener("click", openFunc);
 
@@ -14,6 +15,8 @@ searchInput.addEventListener("keyup", searchInputFunc);
 
 const searchContainer = document.querySelector(".search");
 
+//! open/close search-bar
+
 function openFunc(event) {
   const searchWrapper = document.querySelector(".search-wrapper");
   searchWrapper.classList.add("active");
@@ -27,6 +30,8 @@ function closeFunc(event) {
   searchInput.value = "";
   searchContainer.style = "";
 }
+
+//! searching functions
 
 function searchFunc() {
   if (searchWrapper.classList.contains("active")) {
@@ -44,6 +49,8 @@ function searchInputFunc(event) {
   }
 }
 
+//! getting data from API
+
 let apiUrl =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e487d573948874cb333b763e6c460e12";
 
@@ -57,6 +64,8 @@ getData(apiUrl);
 
 const filmBlock = document.querySelector(".films-block-content");
 
+//! function managing data from API
+
 function apiDataOperator(data) {
   if (filmBlock.innerHTML == "") {
     console.log("empty");
@@ -67,6 +76,8 @@ function apiDataOperator(data) {
     createFilmCard(data);
   }
 }
+
+//! creating film cards
 
 function createFilmCard(data) {
   const filmsContainer = document.querySelector(".films-container");
@@ -124,6 +135,8 @@ function createFilmCard(data) {
     filmsContainer.style.height = "100vh";
   }
 }
+
+//! film cars description functions
 
 function openCardDescription(event) {
   console.log("open");
