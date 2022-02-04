@@ -31,8 +31,10 @@ function closeFunc(event) {
 function searchFunc() {
   if (searchWrapper.classList.contains("active")) {
     const searchQuery = searchInput.value;
-    apiUrl = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&api_key=e487d573948874cb333b763e6c460e12`;
-    getData(apiUrl);
+    if (searchQuery !== "") {
+      apiUrl = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&api_key=e487d573948874cb333b763e6c460e12`;
+      getData(apiUrl);
+    }
   }
 }
 
@@ -67,6 +69,8 @@ function apiDataOperator(data) {
 }
 
 function createFilmCard(data) {
+  const filmsContainer = document.querySelector(".films-container");
+  filmsContainer.style = "";
   let counter = 0;
   for (let item in data.results) {
     const div = document.createElement("div");
@@ -76,6 +80,9 @@ function createFilmCard(data) {
 
     const img = document.createElement("img");
     img.src = `https://image.tmdb.org/t/p/w500${data.results[counter].poster_path}`;
+    if (data.results[counter].poster_path === null) {
+      img.src = "assets/img/null.jpg";
+    }
     img.alt = "film poster";
     img.classList.add("film-card-image");
 
@@ -106,6 +113,15 @@ function createFilmCard(data) {
     div.append(h2);
 
     counter++;
+  }
+
+  if (filmBlock.innerHTML === "") {
+    const image404 = document.createElement("img");
+    image404.src = "assets/png/404.png";
+    image404.classList.add("image404");
+    image404.alt = "not found";
+    filmBlock.append(image404);
+    filmsContainer.style.height = "100vh";
   }
 }
 
