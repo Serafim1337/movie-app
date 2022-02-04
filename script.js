@@ -68,10 +68,8 @@ const filmBlock = document.querySelector(".films-block-content");
 
 function apiDataOperator(data) {
   if (filmBlock.innerHTML == "") {
-    console.log("empty");
     createFilmCard(data);
   } else {
-    console.log("full");
     filmBlock.innerHTML = "";
     createFilmCard(data);
   }
@@ -139,7 +137,6 @@ function createFilmCard(data) {
 //! film cars description functions
 
 function openCardDescription(event) {
-  console.log("open");
   event.currentTarget.querySelector(".film-card-description").style.display =
     "block";
 }
