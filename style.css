@@ -41,6 +41,16 @@ h2 {
   flex: 1;
 }
 
+.header-container a {
+  text-decoration: none;
+  color: #000;
+  transition: ease 0.5s;
+}
+
+.header-container a:hover {
+  color: #f2ca50;
+}
+
 .search {
   margin-right: 80px;
   position: relative;
@@ -320,12 +330,11 @@ h2 {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .footer img {
   width: 100px;
+  margin: 0 20px;
 }
 
 .footer p {
